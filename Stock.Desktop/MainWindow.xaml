@@ -1,0 +1,42 @@
+﻿<Window x:Class="Stock.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stock.Desktop"
+        mc:Ignorable="d"
+        Title="Автоматизированая система учета склада" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Склады">
+                <TabItem.Content>
+                    <local:Stocks>
+                    </local:Stocks>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Документы">
+                <local:Docs>
+
+                </local:Docs>
+            </TabItem>
+            <TabItem Header="Материалы">
+                <TabItem.Content>
+                    <local:Materials>
+                    </local:Materials>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Еденицы измерения">
+                <TabItem.Content>
+                    <local:MetricUnits>
+                    </local:MetricUnits>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Типы документов">
+                <TabItem.Content>
+                    <local:DocTypes>
+                    </local:DocTypes>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

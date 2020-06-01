@@ -1,0 +1,24 @@
+﻿<Window x:Class="Stock.Desktop.EditForms.MaterialEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stock.Desktop.EditForms"
+        mc:Ignorable="d"
+        Title="Редактирование материал" Height="150" Width="300">
+    <Grid DataContext="{Binding MaterialItem}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Наименование</Label>
+            <TextBox Name="MaterialNameTb" Text="{Binding Name , Mode=TwoWay}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="2,2,2,2" Height="30">
+            <Button Name="MaterialSave" Margin="2,0,2,0" Click="MaterialSave_Click">Сохранить</Button>
+            <Button Name="MaterialCancel" Margin="2,0,2,0" Click="MaterialCancel_Click">Отменить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

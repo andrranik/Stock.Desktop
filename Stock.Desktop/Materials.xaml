@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Stock.Desktop.Materials"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stock.Desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="4">
+            <Button Name="StockAdd" Content="Добавить" Margin="0, 0, 2, 0" Click="MaterialAdd_Click"/>
+            <Button Name="StockEdit" Content="Редактировать" Margin="2, 0, 2, 0" Click="MaterialEdit_Click"/>
+            <Button Name="StockDelete" Content="Удалить" Margin="2, 0, 0, 0" Click="MaterialDelete_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="4" Name="StocksDg" ItemsSource="{Binding MaterialList}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedMaterial}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding Id}" Width="40"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="100"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

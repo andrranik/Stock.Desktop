@@ -1,0 +1,56 @@
+﻿<Window x:Class="Stock.Desktop.EditForms.DocEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stock.Desktop.EditForms"
+        mc:Ignorable="d"
+        Title="Редактирование Документ" Height="415" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Наименование</Label>
+            <TextBox Name="DocNameTb" Text="{Binding DocItem.Name , Mode=TwoWay}"></TextBox>
+        </StackPanel>        
+        <StackPanel Orientation="Vertical" Grid.Row="1"  Margin="4, 0 ,4, 0" Height="60">
+            <Label>Дата</Label>
+            <DatePicker Name="DocDateTb" Text="{Binding DocItem.Date , Mode=TwoWay}"></DatePicker>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Тип документа</Label>
+            <ComboBox Name="DocDocTypeTb" ItemsSource="{Binding DocTypeList , Mode=TwoWay}" SelectedItem="{Binding SelectedDocType, Mode=TwoWay}" DisplayMemberPath="Name"></ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Количество</Label>
+            <TextBox Name="DocQuantityTb" Text="{Binding DocItem.Quantity , Mode=TwoWay}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Склад</Label>
+            <ComboBox Name="DocStockTb" ItemsSource="{Binding StockList , Mode=TwoWay}" SelectedItem="{Binding SelectedStockItem, Mode=TwoWay}" DisplayMemberPath="Name">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Единица измерения</Label>
+            <ComboBox Name="DocMetricUnitTb" ItemsSource="{Binding MetricUnitList , Mode=TwoWay}" SelectedItem="{Binding SelectedMetricUnitItem, Mode=TwoWay}" DisplayMemberPath="Name"></ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Margin="4, 0 ,4, 0" Height="60">
+            <Label>Материалы</Label>
+            <ComboBox Name="DocMatrialTb" ItemsSource="{Binding MaterialList , Mode=TwoWay}" SelectedItem="{Binding SelectedMaterialItem, Mode=TwoWay}" DisplayMemberPath="Name"></ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right" Margin="2,2,2,2" Height="30">
+            <Button Name="DocSave" Margin="2,0,2,0" Click="DocSave_Click">Сохранить</Button>
+            <Button Name="DocCancel" Margin="2,0,2,0" Click="DocCancel_Click">Отменить</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+ 
